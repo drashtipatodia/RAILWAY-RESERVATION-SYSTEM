@@ -1,6 +1,6 @@
 # RAILWAY-RESERVATION-SYSTEM
 
-**Prefer VSCODE for this project.**
+**NOTE: PREFER VSCODE FOR THIS PROJECT**
 
 
 **FIRST INSTALL THE FOLOWING LIBRARIES (Just Run Following Commands In Terminal ) :**
