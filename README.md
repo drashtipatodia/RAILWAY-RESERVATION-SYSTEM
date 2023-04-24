@@ -12,7 +12,8 @@ Then Make a SQL database in PostgreSQL(pgAdmin) with following details:
   DATABASE : RAILWAY RESERVATION
 
   In this Database make 2 tables (Passengers and Trains):
-   Table details:
+  
+  Table details:
      
      Passengers(note: all columns have notnull constraint):
       | name VARCHAR | number NUMERIC | fromstation VARCHAR | tostation VARCHAR | id INT (PRIMARY KEY) | dt DATE | tm TIME WITHOUT TIMEZONE | seats BIGINT | train_name VARCHAR |
