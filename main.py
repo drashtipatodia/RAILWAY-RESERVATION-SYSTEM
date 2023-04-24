@@ -1,6 +1,6 @@
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask,request,render_template,url_for,jsonify,redirect,flash, session
+from flask import Flask,request,render_template, session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
