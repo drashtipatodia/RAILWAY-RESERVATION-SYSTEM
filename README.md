@@ -11,6 +11,9 @@ pip install sqlalchemy
 pip install flask_sqlalchemy
 
 
+
+
+
 Then Make a SQL database in PostgreSQL(pgAdmin) with following details:
   
   DATABASE : RAILWAY RESERVATION
