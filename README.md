@@ -1,9 +1,9 @@
 # RAILWAY-RESERVATION-SYSTEM
 
-**bold**Prefer VSCODE for this project. 
+**Prefer VSCODE for this project. **
 
 
-FIRST INSTALL THE FOLOWING LIBRARIES (Just Run Following Commands In Terminal ) :
+**FIRST INSTALL THE FOLOWING LIBRARIES (Just Run Following Commands In Terminal ) :**
 
 pip install flask
 
@@ -17,11 +17,11 @@ pip install flask_sqlalchemy
 
 
 
-Then Make a SQL database in PostgreSQL(pgAdmin) with following details:
+**Then Make a SQL database in PostgreSQL(pgAdmin) with following details:**
   
   DATABASE : RAILWAY RESERVATION
 
-  In this Database make 2 tables (Passengers and Trains):
+ **In this Database make 2 tables (Passengers and Trains):**
   
   Table details:
      
