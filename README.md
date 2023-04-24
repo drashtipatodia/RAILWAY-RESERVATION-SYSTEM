@@ -3,7 +3,7 @@
 Prefer VSCODE for this project. 
 
 
-FIRST INSTALL THE FOLOWING LIBRARIES USING TERMINAL:
+FIRST INSTALL THE FOLOWING LIBRARIES (Just Run Following Commands In Terminal ):
 
 pip install flask
 
