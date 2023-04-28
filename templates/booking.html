@@ -23,7 +23,7 @@
               <div class="field">
                 PERSONAL INFO:
                 
-                <input type="text" name="name" id="name" pattern="[A-Za-z]+" placeholder="FULL NAME"
+                <input type="text" name="name" id="name" pattern="[A-Za-z\s]+" placeholder="FULL NAME"
                   required>
                 
               </div>
@@ -39,7 +39,7 @@
               </div> -->
 
               <div class="field">
-                <input type="number" name="number" id="numb"
+                <input type="number" min="0" name="number" id="numb"
                   placeholder="MOBILE NUMBER" required>
               </div>
 
@@ -51,7 +51,7 @@
               </div>
 
               <div class="field">
-                <input type="text" pattern="[A-Za-z]+" name="tostation" id="to"
+                <input type="text" pattern="[A-Za-z\s]+" name="tostation" id="to"
                   placeholder="TO"
                   required onclick="setTo()">
               </div>
@@ -59,7 +59,7 @@
               <div class="field">
                 <!-- <input type="number" id="train_no" name="train_no" placeholder="TRAIN NO"> -->
                 
-                <input type="number" id="seats" name="seats" placeholder="SEATS" required>
+                <input type="number" min="1" id="seats" name="seats" placeholder="SEATS" required>
                 <br>
                 <select id="train_name" name="train_name">
                   {% for train in trains %}
