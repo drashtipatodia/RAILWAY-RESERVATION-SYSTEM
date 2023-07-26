@@ -85,7 +85,7 @@ def test():
     else:
         result = ""
 
-    cursor.execute("SELECT * FROM trains ORDER BY train_no ASC")
+    cursor.execute("SELECT train_no, train_name, origin, dept_time, destination, arr_time,route_no, schedule, CASE WHEN avail_seats > 0 THEN avail_seats::text ELSE '0' END AS seats FROM trains ORDER BY train_no ASC")
     all = cursor.fetchall()
     if request.method == "POST":
 
