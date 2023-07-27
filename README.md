@@ -22,6 +22,8 @@ pip install flask_sqlalchemy
   DATABASE : RAILWAY RESERVATION
 
  **In this Database make 2 tables (Passengers and Trains):**
+
+ **NOTE: I HAVE GIVEN THE QUERRIES FOR THE PASSENGERS AND TRAINS TABLE IN TEXT FILES.
   
   Table details:
      
