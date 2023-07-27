@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS public."Passengers"
+(
+    name character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    age integer,
+    gender character varying(40) COLLATE pg_catalog."default",
+    "number" numeric NOT NULL,
+    fromstation character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    tostation character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    id serial primary key ,
+    dt date NOT NULL,
+    tm time without time zone NOT NULL DEFAULT now(),
+    seats bigint NOT NULL,
+    train_name character varying(40) COLLATE pg_catalog."default" NOT NULL
+);
+
+
+CREATE SEQUENCE Passengers_id_seq AS INTEGER;
+
+
+Alter sequence Passengers_id_seq owned by "Passengers".id;
