@@ -23,7 +23,7 @@ pip install flask_sqlalchemy
 
  **In this Database make 2 tables (Passengers and Trains):**
 
- **NOTE: I HAVE GIVEN THE QUERRIES FOR THE PASSENGERS AND TRAINS TABLE IN TEXT FILES.
+ **NOTE: I HAVE GIVEN THE QUERRIES FOR THE PASSENGERS AND TRAINS TABLE IN TEXT FILES.**
   
   Table details:
      
