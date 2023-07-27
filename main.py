@@ -73,14 +73,14 @@ def test():
         cursor.execute("SELECT train_name from trains WHERE destination ILIKE %s AND origin ILIKE %s AND avail_seats > 0  ORDER BY train_name ASC",(avl,frm,),)
         trains = cursor.fetchall()
     elif avl:
-        cursor.execute("SELECT * from trains WHERE destination ILIKE %s ORDER BY train_no ASC",(avl,),)
+        cursor.execute("SELECT * from trains WHERE destination ILIKE %s AND avail_seats > 0 ORDER BY train_no ASC",(avl,),)
         result = cursor.fetchall()
-        cursor.execute("SELECT train_name from trains WHERE destination ILIKE %s", (avl,))
+        cursor.execute("SELECT train_name from trains WHERE destination ILIKE %s AND avail_seats > 0", (avl,))
         trains = cursor.fetchall()
     elif frm:
-        cursor.execute("SELECT * from trains WHERE origin ILIKE %s ORDER BY train_no ASC", (frm,))
+        cursor.execute("SELECT * from trains WHERE origin ILIKE %s AND avail_seats > 0 ORDER BY train_no ASC", (frm,))
         result = cursor.fetchall()
-        cursor.execute("SELECT train_name from trains WHERE origin ILIKE %s", (frm,))
+        cursor.execute("SELECT train_name from trains WHERE origin ILIKE %s AND avail_seats > 0", (frm,))
         trains = cursor.fetchall()
     else:
         result = ""
