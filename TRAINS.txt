@@ -1,0 +1,12 @@
+CREATE TABLE trains
+(
+    train_no character varying(50),
+    train_name character varying(50),
+    origin character varying(50),
+    dept_time character varying(20),
+    destination character varying(50),
+    arr_time character varying(20), 
+    route_no character varying(5), 
+    schedule character varying(20), 
+    avail_seats integer
+);
