@@ -1,6 +1,6 @@
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, request, render_template, session
+from flask import Flask, request, render_template, session,jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -85,7 +85,7 @@ def test():
     else:
         result = ""
 
-    cursor.execute("SELECT train_no, train_name, origin, dept_time, destination, arr_time,route_no, schedule, CASE WHEN avail_seats > 0 THEN avail_seats::text ELSE '0' END AS seats FROM trains ORDER BY train_no ASC")
+    cursor.execute("SELECT * FROM trains ORDER BY train_no ASC")
     all = cursor.fetchall()
     if request.method == "POST":
 
@@ -122,15 +122,14 @@ def test():
                 return render_template("searchtrains.html", data=result)
 
         # Get the form data
-        train_name = request.form["train_name"]
-        num_seats = request.form["seats"]
+        # train_name = request.form["train_name"]
+        # num_seats = request.form["seats"]
 
         # Update the available seats in the 'Trains' table
-        cursor.execute("UPDATE Trains SET avail_seats = avail_seats - %s WHERE train_name = %s",(num_seats, train_name),)
+        # cursor.execute("UPDATE Trains SET avail_seats = avail_seats - %s WHERE train_name = %s",(num_seats, train_name),)
 
         # Commit the changes to the database
-        con.commit()
-
+        
     name = request.form["name"]
     number = request.form["number"]
     fromstation = request.form["fromstation"]
@@ -154,11 +153,22 @@ def test():
             result.seats,
             result.train_name,
         )
-
+    train_n=request.form.get('train_name')    
+    requested_seats= int(request.form.get('seats'))
+    cursor.execute("SELECT avail_seats FROM trains WHERE train_name = %s", (train_n,))
+    
+    res = cursor.fetchone()    
     if "BOOK" in request.form:
-        return render_template(
+        available_seats=res[0]
+        if requested_seats <= available_seats:
+         cursor.execute("UPDATE Trains SET avail_seats = avail_seats - %s WHERE train_name = %s",(requested_seats, train_n),)
+         con.commit()
+         return render_template(
             "done.html", data=(name, fromstation, tostation, dt, seats, train_name)
-        )
+         )
+        else:
+            return render_template("error.html")
+         
 
 
 if __name__ == "__main__":
