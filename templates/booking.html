@@ -27,16 +27,7 @@
                   required>
                 
               </div>
-              <!-- <div class="field">
-                <input type="number" name="age" id="age" placeholder="AGE"
-                  required>
-              </div>
 
-              <div class="field">
-                <input type="gender" name="gender" id="gender"
-                  placeholder="GENDER" required>
-                
-              </div> -->
 
               <div class="field">
                 <input type="number" min="0" name="number" id="numb"
@@ -61,11 +52,9 @@
                 
                 <input type="number" min="1" id="seats" name="seats" placeholder="SEATS" required>
                 <br>
-                <select id="train_name" name="train_name">
-                  {% for train in trains %}
-                    <option value="{{ train[0] }}">{{ train[0] }}</option>
-                  {% endfor %}
-                </select>
+                <input type="text" name="train_name" value="{{ train_name }}" readonly>
+
+
               </div>
 
 

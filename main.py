@@ -49,12 +49,11 @@ class Passenger(db.Model):
         self.fromstation = fromstation
         self.tostation = tostation
         self.dt = dt
-
         self.seats = seats
         self.train_name = train_name
 
 
-@app.route("/", methods=["post"])
+@app.route("/", methods=["post", "get"])
 def test():
 
     avl = request.form.get("input_fld")
@@ -70,18 +69,12 @@ def test():
         cursor.execute(
             "SELECT * from trains WHERE destination ILIKE %s AND origin ILIKE %s AND avail_seats > 0  ORDER BY train_name ASC",(avl,frm,),)
         result = cursor.fetchall()
-        cursor.execute("SELECT train_name from trains WHERE destination ILIKE %s AND origin ILIKE %s AND avail_seats > 0  ORDER BY train_name ASC",(avl,frm,),)
-        trains = cursor.fetchall()
     elif avl:
         cursor.execute("SELECT * from trains WHERE destination ILIKE %s AND avail_seats > 0 ORDER BY train_no ASC",(avl,),)
         result = cursor.fetchall()
-        cursor.execute("SELECT train_name from trains WHERE destination ILIKE %s AND avail_seats > 0", (avl,))
-        trains = cursor.fetchall()
     elif frm:
         cursor.execute("SELECT * from trains WHERE origin ILIKE %s AND avail_seats > 0 ORDER BY train_no ASC", (frm,))
         result = cursor.fetchall()
-        cursor.execute("SELECT train_name from trains WHERE origin ILIKE %s AND avail_seats > 0", (frm,))
-        trains = cursor.fetchall()
     else:
         result = ""
 
@@ -101,7 +94,9 @@ def test():
             session.setdefault = ("origin", "")
 
         if "ticket" in request.form:
-            return render_template("booking.html", trains=trains)
+            train_name = request.form.get("train_name")
+            session["selected_train"] = train_name
+            return render_template("booking.html", train_name=train_name)
 
         if "home" in request.form:
             return render_template("home.html")
